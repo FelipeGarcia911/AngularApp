@@ -1,9 +1,22 @@
-<h2>My Gists</h2>
-<input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
-<button (click)="getGists()">Clear Search</button>
-<ul class="gists">
-  <li *ngFor="let gist of gists" (click)="onSelect(gist)">
-    <h3><span class="badge">{{gist.description}}</span></h3>
-    <p class="badge">{{gist.url}}</p>
-  </li>
-</ul>
+<div class="container">
+  <h2>Principal Gist List</h2>
+  <div class="form-inline form-group mb-2">
+      <input placeholder="Enter a gist username" type="text" class="form-control form-control-plaintext" (input)="onSearchChange($event.target.value)">    
+      <button (click)="getGists()" class="btn btn-primary mb-2">Clear Search</button>
+  </div>
+    <ul class="list-group">
+      <li *ngFor="let gist of gists" class="list-group-item list-group-item-action">
+            <div class="row">
+              <div class="col-md-2">
+                <img src="{{gist.owner.avatar_url}}" class="rounded float-left rounded-circle" width="150px"/>
+                <button (click)="onSelect(gist)" class="btn btn-info btn-block">Ver detalles</button>
+              </div>
+              <div class="col-md-10">
+                  <h3>{{gist.description}}</h3>
+                  <p>{{gist.url}}</p> 
+                  <p>Total Archivos: {{gist.files.length}}</p> 
+            </div>
+          </div>      
+      </li>
+    </ul>
+</div>

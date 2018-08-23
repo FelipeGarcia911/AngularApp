@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GISTS } from './gists-mock';
+import { GISTS } from '../ models/gists-mock';
 import { Router } from '@angular/router';
 
-import { Gist } from './gist';
+import { Gist } from '../ models/gist';
 import { GistService } from '../services/gists.service';
 
 @Component({
@@ -13,9 +13,7 @@ import { GistService } from '../services/gists.service';
 })
 
 export class GistListComponent implements OnInit {
-  //gists = GISTS
   gists: Gist[]
-  selectedGist: Gist;
   constructor(private gistsService: GistService, private router: Router) { }
 
   ngOnInit() {
@@ -33,5 +31,5 @@ export class GistListComponent implements OnInit {
   onSelect(gist: Gist): void {
     this.router.navigate(['/gist-details', gist.id]);
   }
-  
+
 }

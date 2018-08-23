@@ -4,7 +4,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Gist } from '../gist-list/gist';
+import { Gist } from '../ models/gist';
 import { HttpErrorHandler, HandleError } from './http-error-handler.service';
 
 @Injectable()

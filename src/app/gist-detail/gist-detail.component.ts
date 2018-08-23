@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Gist } from '../gist-list/gist';
+import { Gist } from '../ models/gist';
 import { GistService } from '../services/gists.service';
 
 @Component({
@@ -12,8 +12,7 @@ import { GistService } from '../services/gists.service';
 })
 export class GistDetailComponent implements OnInit {
   private sub: any;
-   gist: Gist;
-
+  gist: Gist;  
   constructor(private gistsService: GistService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -22,7 +21,11 @@ export class GistDetailComponent implements OnInit {
    });
   }
   getGist(id: String): void {
-    this.gistsService.getGist(id).subscribe(gist => this.gist = gist);
+    this.gistsService.getGist(id).subscribe(gist => this.updateGist(gist));
+  }
+
+  updateGist(gist: Gist){
+    this.gist = gist
   }
 
 }
