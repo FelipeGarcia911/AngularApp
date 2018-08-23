@@ -10,6 +10,9 @@ import { HttpErrorHandler, HandleError } from './http-error-handler.service';
 @Injectable()
 export class GistService {
   mainURL = 'https://api.github.com/';  // URL to web api
+  gistsURL = 'gists'
+  usersURL = 'users'
+
   private handleError: HandleError;
 
   constructor(
@@ -18,24 +21,24 @@ export class GistService {
     this.handleError = httpErrorHandler.createHandleError('GistService');
   }
 
-  /** GET heroes from the server */
+  /** GET Gist from the server */
   getGists (): Observable<Gist[]> {
-    return this.http.get<Gist[]>(this.mainURL+'gists')
+    return this.http.get<Gist[]>(this.mainURL + this.gistsURL )
       .pipe(
         catchError(this.handleError('getGist', []))
       );
   }
 
-  /* GET heroes whose name contains search term */
-  searchGists(term: string): Observable<Gist[]> {
-    term = term.trim();
-
-    const options = term ?
-     { params: new HttpParams().set('name', term) } : {};
-
-    return this.http.get<Gist[]>(this.mainURL, options)
+  /** GET Gist from the server */
+  getGistsByUser (username:String): Observable<Gist[]> {
+    return this.http.get<Gist[]>(this.mainURL + this.usersURL + '/' + username + '/' + this.gistsURL )
       .pipe(
-        catchError(this.handleError<Gist[]>('searchGists', []))
+        catchError(this.handleError('getGist', []))
       );
+  }
+
+  /** GET Gist from the server */
+  getGist (id: String): Observable<Gist> {
+    return this.http.get<Gist>(this.mainURL + this.gistsURL + '/' + id);
   }
 }

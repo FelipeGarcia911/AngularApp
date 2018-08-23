@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GISTS } from './gists-mock';
+import { Router } from '@angular/router';
 
 import { Gist } from './gist';
 import { GistService } from '../services/gists.service';
@@ -14,15 +15,23 @@ import { GistService } from '../services/gists.service';
 export class GistListComponent implements OnInit {
   //gists = GISTS
   gists: Gist[]
-
-  constructor(private gistsService: GistService) { }
+  selectedGist: Gist;
+  constructor(private gistsService: GistService, private router: Router) { }
 
   ngOnInit() {
     this.getGists()
   }
 
-  getGists(): void {
-    this.gistsService.getGists()
-      .subscribe(gists => this.gists = gists);
+  onSearchChange(searchValue : string ) {  
+    this.gistsService.getGistsByUser(searchValue).subscribe(gists => this.gists = gists);
   }
+
+  getGists(): void {
+    this.gistsService.getGists().subscribe(gists => this.gists = gists);
+  }
+
+  onSelect(gist: Gist): void {
+    this.router.navigate(['/gist-details', gist.id]);
+  }
+  
 }

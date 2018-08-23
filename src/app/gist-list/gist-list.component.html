@@ -1,7 +1,9 @@
 <h2>My Gists</h2>
+<input type="text" class="form-control" (input)="onSearchChange($event.target.value)">
+<button (click)="getGists()">Clear Search</button>
 <ul class="gists">
-  <li *ngFor="let gist of gists">
-    <h3><span class="badge">{{gist.title}}</span></h3>
-    <p class="badge">{{gist.description}}</p>
+  <li *ngFor="let gist of gists" (click)="onSelect(gist)">
+    <h3><span class="badge">{{gist.description}}</span></h3>
+    <p class="badge">{{gist.url}}</p>
   </li>
 </ul>

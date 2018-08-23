@@ -12,7 +12,7 @@ import { MessageService }       from './services/message.service';
 
 const appRoutes: Routes = [
   { path: 'gist-list', component: GistListComponent, data: { title: 'Gist List' } },
-  { path: 'gist-details', component: GistDetailComponent, data: { title: 'Gist Details' } },
+  { path: 'gist-details/:id', component: GistDetailComponent, data: { title: 'Gist Details' } },
   { path: 'about', component: AboutComponent, data: { title: 'About' } }
 ];
 
