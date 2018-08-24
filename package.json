@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "./node_modules/.bin/forever server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build --aot --prod"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
@@ -25,7 +24,8 @@
     "core-js": "^2.5.4",
     "rxjs": "^6.0.0",
     "zone.js": "~0.8.26",
-    "typescript": "~2.7.2"
+    "typescript": "~2.7.2",
+    "forever": "0.15.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.7.0",
