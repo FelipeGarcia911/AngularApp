@@ -14,6 +14,8 @@ import { GistService } from '../../services/gists.service';
 
 export class GistListComponent implements OnInit {
   gists: Gist[]
+  clearValue: string = '';
+
   constructor(private gistsService: GistService, private router: Router) { }
 
   ngOnInit() {
@@ -22,6 +24,11 @@ export class GistListComponent implements OnInit {
 
   onSearchChange(searchValue : string ) {  
     this.gistsService.getGistsByUser(searchValue).subscribe(gists => this.gists = gists);
+  }
+
+  onClearSearch(){
+    this.clearValue = '';
+    this.getGists()
   }
 
   getGists(): void {

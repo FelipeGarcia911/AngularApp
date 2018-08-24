@@ -42,4 +42,8 @@ export class GistDetailComponent implements OnInit {
     this.isDisabled = false
   }
 
+  returnList(){
+    this.router.navigate(['/gist-list']);
+  }
+
 }

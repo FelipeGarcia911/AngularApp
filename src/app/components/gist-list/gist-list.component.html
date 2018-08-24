@@ -1,20 +1,20 @@
 <div class="container">
   <h2>Principal Gist List</h2>
   <div class="form-inline form-group mb-2">
-      <input placeholder="Enter a gist username" type="text" class="form-control form-control-plaintext" (input)="onSearchChange($event.target.value)">    
-      <button (click)="getGists()" class="btn btn-primary mb-2">Clear Search</button>
+      <input placeholder="Enter a gist username" [(ngModel)]="clearValue" type="text" class="form-control form-control-plaintext" (input)="onSearchChange($event.target.value)">    
+      <button (click)="onClearSearch()" class="btn btn-primary mb-2">Clear search</button>
   </div>
     <ul class="list-group">
       <li *ngFor="let gist of gists" class="list-group-item list-group-item-action">
             <div class="row">
               <div class="col-md-2">
-                <img src="{{gist.owner.avatar_url}}" class="rounded float-left rounded-circle" width="150px"/>
-                <button (click)="onSelect(gist)" class="btn btn-info btn-block">Ver detalles</button>
+                <img src="{{gist.owner.avatar_url}}" class="rounded center-block rounded-circle" width="150px"/>
+                <button (click)="onSelect(gist)" class="btn btn-info btn-block">See details</button>
               </div>
               <div class="col-md-10">
                   <h3>{{gist.description}}</h3>
                   <p>{{gist.url}}</p> 
-                  <p>Total Archivos: {{gist.files.length}}</p> 
+                  <p>Last updated: {{gist.updated_at}}</p> 
             </div>
           </div>      
       </li>

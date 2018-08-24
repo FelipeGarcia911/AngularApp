@@ -3,7 +3,8 @@
     <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="{{gist?.owner?.avatar_url}}" class="rounded float-center rounded-circle" width="250px"/>
+                    <img src="{{gist?.owner?.avatar_url}}" class="rounded center-block rounded-circle" width="250px"/>
+                    <button (click)="returnList()" class="btn btn-info btn-sm btn-block">Return to list</button>
                 </div>
                 <div class="col-md-8">
                     <div class="card">
