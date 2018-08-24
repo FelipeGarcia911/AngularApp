@@ -12,10 +12,12 @@ import { AboutComponent } from './components/about/about.component';
 import { HttpErrorHandler }     from './services/http-error-handler.service'
 import { MessageService }       from './services/message.service';
 import { MessageComponent } from './components/message/message.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   { path: 'gist-list', component: GistListComponent, data: { title: 'Gist List' } },
   { path: 'gist-details/:id', component: GistDetailComponent, data: { title: 'Gist Details' } },
+  { path: 'login', component: LoginComponent, data: { title: 'Login GitHub' } },
   { path: 'about', component: AboutComponent, data: { title: 'About' } }
 ];
 
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     GistListComponent,
     GistDetailComponent,
     AboutComponent,
-    MessageComponent
+    MessageComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

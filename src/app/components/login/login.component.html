@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="login-form">
+     <div class="main-div">
+        <div class="panel">
+           <h2>GitHub Login</h2>
+        </div>
+        <form id="Login" (ngSubmit)="onSubmit()">
+           <div class="form-group">
+              <input name="token" [(ngModel)]="token" type="password" class="form-control" id="token" placeholder="Token">
+           </div>
+           <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+     </div>
+  </div>
+</div>
