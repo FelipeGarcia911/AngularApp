@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { GISTS } from '../ models/gists-mock';
+import { GISTS } from '../../models/gists-mock';
 import { Router } from '@angular/router';
 
-import { Gist } from '../ models/gist';
-import { GistService } from '../services/gists.service';
+import { Gist } from '../../models/gist';
+import { GistService } from '../../services/gists.service';
 
 @Component({
   selector: 'app-gist-list',

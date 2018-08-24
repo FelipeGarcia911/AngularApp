@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Gist Details</h2>
+    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="{{gist?.owner?.avatar_url}}" class="rounded float-center rounded-circle" width="250px"/>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <h3 class="card-header">Details</h3>
+                        <div class="card-body">
+                                <form id="gist-form">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Description</label>
+                                        <input type="description" [disabled]="isDisabled" class="form-control" id="description" placeholder="Enter description" value="{{gist.description}}" form="gist-form">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Content</label>
+                                        <textarea class="form-control" [disabled]="isDisabled" id="content" type="text" name="comment" form="gist-form" placeholder="File Content" value="{{fileContent.content}}" rows="10"></textarea>
+                                    </div>
+                                    <button *ngIf="!isDisabled" type="submit" class="btn btn-danger btn-sm btn-block">Update</button>
+                                </form>
+                                <div class="card-footer">
+                                    <button (click)="enableEdit()" *ngIf="isDisabled"class="btn btn-primary btn-sm btn-block">Enable Edit</button>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

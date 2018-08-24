@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { GistsService } from './gists.service';
+import { GistService } from './gists.service';
 
 describe('GistsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [GistsService]
+      providers: [GistService]
     });
   });
 
-  it('should be created', inject([GistsService], (service: GistsService) => {
+  it('should be created', inject([GistService], (service: GistService) => {
     expect(service).toBeTruthy();
   }));
 });

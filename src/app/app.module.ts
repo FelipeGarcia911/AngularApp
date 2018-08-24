@@ -5,11 +5,12 @@ import { RouterModule, Routes } from '@angular/router';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { GistListComponent } from './gist-list/gist-list.component';
-import { GistDetailComponent } from './gist-detail/gist-detail.component';
-import { AboutComponent } from './about/about.component';
+import { GistListComponent } from './components/gist-list/gist-list.component';
+import { GistDetailComponent } from './components/gist-detail/gist-detail.component';
+import { AboutComponent } from './components/about/about.component';
 import { HttpErrorHandler }     from './services/http-error-handler.service'
 import { MessageService }       from './services/message.service';
+import { MessageComponent } from './components/message/message.component';
 
 const appRoutes: Routes = [
   { path: 'gist-list', component: GistListComponent, data: { title: 'Gist List' } },
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
     AppComponent,
     GistListComponent,
     GistDetailComponent,
-    AboutComponent
+    AboutComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
